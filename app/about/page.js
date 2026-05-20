@@ -2,23 +2,64 @@
 
 import { motion } from 'framer-motion';
 import { Container, SectionHeader, Button, Chip } from '@/components/ui';
-import { RevealOnScroll, StaggerContainer, StaggerItem, PageTransition } from '@/components/animations';
+import {
+  RevealOnScroll,
+  StaggerContainer,
+  StaggerItem,
+  PageTransition,
+} from '@/components/animations';
 import { SITE } from '@/lib/data';
 import { CTABanner } from '@/app/page';
 import { Instagram, Youtube, Music2, Pin, ExternalLink } from 'lucide-react';
 
 const ABOUT_WHY = [
-  { icon: '🏗️', title: 'Built for Brands', desc: 'Every service is designed to help your brand grow — not just create content for the sake of it.' },
-  { icon: '🎨', title: 'Creative Excellence', desc: 'We bring a fresh, modern aesthetic to every project. No cookie-cutter work.' },
-  { icon: '⚡', title: 'Fast Turnaround', desc: 'Quick delivery without compromising quality. We respect your timelines.' },
-  { icon: '🤝', title: 'Collaborative Process', desc: 'We work alongside you, not just for you. Your vision drives our creative process.' },
+  {
+    icon: '🏗️',
+    title: 'Built for Brands',
+    desc: 'Every service is designed to help your brand grow — not just create content for the sake of it.',
+  },
+  {
+    icon: '🎨',
+    title: 'Creative Excellence',
+    desc: 'We bring a fresh, modern aesthetic to every project. No cookie-cutter work.',
+  },
+  {
+    icon: '⚡',
+    title: 'Fast Turnaround',
+    desc: 'Quick delivery without compromising quality. We respect your timelines.',
+  },
+  {
+    icon: '🤝',
+    title: 'Collaborative Process',
+    desc: 'We work alongside you, not just for you. Your vision drives our creative process.',
+  },
 ];
 
 const SOCIALS = [
-  { name: 'Instagram', icon: Instagram, href: SITE.socials.instagram, handle: '@brandgrowstudio' },
-  { name: 'YouTube', icon: Youtube, href: SITE.socials.youtube, handle: 'BrandGrowOfficial' },
-  { name: 'TikTok', icon: Music2, href: SITE.socials.tiktok, handle: '@brandgrowstudio' },
-  { name: 'Pinterest', icon: Pin, href: SITE.socials.pinterest, handle: 'BrandGrowOfficial' },
+  {
+    name: 'Instagram',
+    icon: Instagram,
+    href: SITE.socials.instagram,
+    handle: '@brandgrowstudio',
+  },
+  {
+    name: 'YouTube',
+    icon: Youtube,
+    href: SITE.socials.youtube,
+    handle: 'BrandGrowOfficial',
+  },
+  {
+    name: 'TikTok',
+    icon: Music2,
+    href: SITE.socials.tiktok,
+    handle: '@brandgrowstudio',
+  },
+  {
+    name: 'Pinterest',
+    icon: Pin,
+    href: SITE.socials.pinterest,
+    handle: 'BrandGrowOfficial',
+  },
 ];
 
 export default function AboutPage() {
@@ -26,10 +67,19 @@ export default function AboutPage() {
     <PageTransition>
       {/* Hero */}
       <section className="pt-28 pb-16 bg-brand-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #3CC76A 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, #3CC76A 1px, transparent 0)',
+            backgroundSize: '40px 40px',
+          }}
+        />
         <Container>
           <RevealOnScroll>
-            <h1 className="font-display font-extrabold text-[clamp(36px,5vw,56px)] text-ink-primary tracking-tight">About Brand Grow Studio</h1>
+            <h1 className="font-display font-extrabold text-[clamp(36px,5vw,56px)] text-ink-primary tracking-tight">
+              About Brand Grow Studio
+            </h1>
           </RevealOnScroll>
         </Container>
       </section>
@@ -39,21 +89,46 @@ export default function AboutPage() {
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <RevealOnScroll direction="left">
-              <div className="aspect-[4/3] bg-gradient-to-br from-brand-100 to-brand-300 rounded-3xl flex items-center justify-center overflow-hidden relative">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '25px 25px' }} />
-                <span className="text-[80px] relative z-10">🏢</span>
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden relative shadow-soft bg-brand-100 group">
+                <img
+                  src="/about.png"
+                  alt="Brand Grow Studio creative team and studio"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+
+                {/* <div className="absolute bottom-6 left-6 right-6 z-10">
+                  <span className="inline-flex rounded-full bg-white/15 backdrop-blur-md px-4 py-2 text-white font-body font-semibold text-sm border border-white/20 shadow-medium">
+                    🏢 Brand Grow Studio
+                  </span>
+                </div> */}
               </div>
             </RevealOnScroll>
+
             <RevealOnScroll direction="right">
               <h2 className="font-display font-extrabold text-[clamp(24px,3.5vw,36px)] text-ink-primary leading-tight tracking-tight mb-5">
                 We are a one-stop creative studio and marketing agency in Dhaka.
               </h2>
+
               <div className="bg-brand-50 rounded-xl p-5 mb-6 border-l-4 border-brand-400">
-                <span className="font-display font-bold text-brand-500">Our Mission:</span>
-                <span className="text-ink-secondary font-body ml-2">To help brands grow through powerful visual content.</span>
+                <span className="font-display font-bold text-brand-500">
+                  Our Mission:
+                </span>
+                <span className="text-ink-secondary font-body ml-2">
+                  To help brands grow through powerful visual content.
+                </span>
               </div>
+
               <p className="text-base text-ink-secondary font-body leading-relaxed">
-                Brand Grow Studio was born from a simple idea — that every brand in Bangladesh deserves access to world-class creative services. Based in Mirpur DOHS, Dhaka, we&apos;ve built a professional studio space where photography, videography, podcast recording, editing, and marketing all come together. Our team combines technical expertise with creative vision to deliver content that doesn&apos;t just look good — it drives real business growth for brands of all sizes.
+                Brand Grow Studio was born from a simple idea — that every brand
+                in Bangladesh deserves access to world-class creative services.
+                Based in Mirpur DOHS, Dhaka, we&apos;ve built a professional
+                studio space where photography, videography, podcast recording,
+                editing, and marketing all come together. Our team combines
+                technical expertise with creative vision to deliver content that
+                doesn&apos;t just look good — it drives real business growth for
+                brands of all sizes.
               </p>
             </RevealOnScroll>
           </div>
@@ -63,14 +138,25 @@ export default function AboutPage() {
       {/* Why Us */}
       <section className="py-24 bg-surface-secondary">
         <Container>
-          <SectionHeader chip="WHY BRANDS CHOOSE US" title="What Makes Us Different" center />
+          <SectionHeader
+            chip="WHY BRANDS CHOOSE US"
+            title="What Makes Us Different"
+            center
+          />
+
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {ABOUT_WHY.map((item, i) => (
               <StaggerItem key={i}>
                 <div className="group bg-white rounded-2xl p-7 border border-gray-100 hover:border-brand-200 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow h-full text-center">
-                  <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300 inline-block">{item.icon}</div>
-                  <h4 className="font-display font-bold text-base text-ink-primary mb-2">{item.title}</h4>
-                  <p className="text-sm text-ink-muted font-body leading-relaxed">{item.desc}</p>
+                  <div className="text-4xl mb-5 group-hover:scale-110 transition-transform duration-300 inline-block">
+                    {item.icon}
+                  </div>
+                  <h4 className="font-display font-bold text-base text-ink-primary mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-ink-muted font-body leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -82,6 +168,7 @@ export default function AboutPage() {
       <section className="py-20">
         <Container>
           <SectionHeader title="Trusted by Brands" center />
+
           <RevealOnScroll>
             <div className="flex flex-wrap gap-5 justify-center">
               {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -98,7 +185,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Socials */}
+      {/* Socials
       <section className="py-20 bg-surface-secondary">
         <Container>
           <SectionHeader title="Follow Us" center />
@@ -123,7 +210,7 @@ export default function AboutPage() {
             </div>
           </RevealOnScroll>
         </Container>
-      </section>
+      </section> */}
 
       <CTABanner />
     </PageTransition>

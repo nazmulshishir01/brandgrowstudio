@@ -1,21 +1,65 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Container, SectionHeader, Button, Chip } from '@/components/ui';
-import { RevealOnScroll, StaggerContainer, StaggerItem, PageTransition } from '@/components/animations';
+import { Container, SectionHeader, Button } from '@/components/ui';
+import {
+  RevealOnScroll,
+  StaggerContainer,
+  StaggerItem,
+  PageTransition,
+} from '@/components/animations';
 import { EQUIPMENT_LIST } from '@/lib/data';
-import { Check, MapPin } from 'lucide-react';
+import { Check } from 'lucide-react';
+
+const STUDIO_IMAGES = [
+  {
+    src: '/studio/studio2.png',
+    alt: 'Brand Grow Studio photography and video setup',
+    span: 'col-span-1 row-span-2',
+    ratio: '1/1.3',
+  },
+  {
+    src: '/studio/studio1.png',
+    alt: 'Brand Grow Studio lighting setup',
+    span: '',
+    ratio: '1/1',
+  },
+  {
+    src: '/studio/studio3.png',
+    alt: 'Brand Grow Studio podcast recording setup',
+    span: '',
+    ratio: '1/1',
+  },
+  // {
+  //   src: '/studio/studio4.png',
+  //   alt: 'Brand Grow Studio creative workspace',
+  //   span: 'col-span-2',
+  //   ratio: '16/7',
+  // },
+];
 
 export default function StudioPage() {
   return (
     <PageTransition>
       {/* Hero */}
       <section className="pt-28 pb-16 bg-brand-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #3CC76A 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, #3CC76A 1px, transparent 0)',
+            backgroundSize: '40px 40px',
+          }}
+        />
+
         <Container>
           <RevealOnScroll>
-            <h1 className="font-display font-extrabold text-[clamp(36px,5vw,56px)] text-ink-primary tracking-tight">Our Studio</h1>
-            <p className="mt-3 text-lg text-ink-secondary font-body max-w-lg">A professional creative space built for brands and creators.</p>
+            <h1 className="font-display font-extrabold text-[clamp(36px,5vw,56px)] text-ink-primary tracking-tight">
+              Our Studio
+            </h1>
+            <p className="mt-3 text-lg text-ink-secondary font-body max-w-lg">
+              A professional creative space built for brands and creators.
+            </p>
           </RevealOnScroll>
         </Container>
       </section>
@@ -27,20 +71,21 @@ export default function StudioPage() {
             {/* Gallery */}
             <RevealOnScroll direction="left">
               <div className="grid grid-cols-2 gap-3">
-                {[
-                  { span: 'col-span-1 row-span-2', ratio: '1/1.3', grad: 'from-brand-400 to-emerald-500' },
-                  { span: '', ratio: '1/1', grad: 'from-brand-300 to-brand-400' },
-                  { span: '', ratio: '1/1', grad: 'from-emerald-400 to-brand-500' },
-                  { span: 'col-span-2', ratio: '16/7', grad: 'from-brand-200 to-brand-400' },
-                ].map((tile, i) => (
+                {STUDIO_IMAGES.map((tile, i) => (
                   <motion.div
                     key={i}
-                    className={`${tile.span} bg-gradient-to-br ${tile.grad} rounded-2xl flex items-center justify-center overflow-hidden shine-effect cursor-pointer`}
+                    className={`${tile.span} rounded-2xl relative overflow-hidden shine-effect cursor-pointer bg-brand-100 shadow-soft group`}
                     style={{ aspectRatio: tile.ratio }}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.4 }}
                   >
-                    <span className="text-4xl text-white/50">🎬</span>
+                    <img
+                      src={tile.src}
+                      alt={tile.alt}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent opacity-80" />
                   </motion.div>
                 ))}
               </div>
@@ -52,7 +97,11 @@ export default function StudioPage() {
                 A Professional Space Built for Creators
               </h2>
               <p className="text-base text-ink-secondary font-body leading-relaxed mb-8">
-                Our studio in Mirpur DOHS is fully equipped with everything you need to produce professional-grade content. From photography and videography to podcast recording, we&apos;ve created a comfortable, controlled environment that lets you focus on creating while we handle the technical setup.
+                Our studio in Mirpur DOHS is fully equipped with everything you
+                need to produce professional-grade content. From photography and
+                videography to podcast recording, we&apos;ve created a
+                comfortable, controlled environment that lets you focus on
+                creating while we handle the technical setup.
               </p>
 
               <StaggerContainer className="space-y-0 mb-10">
@@ -60,28 +109,38 @@ export default function StudioPage() {
                   <StaggerItem key={i}>
                     <div className="flex items-center gap-4 py-3.5 border-b border-gray-100 group">
                       <div className="w-7 h-7 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-400 group-hover:text-white transition-colors duration-300">
-                        <Check size={14} className="text-brand-500 group-hover:text-white" />
+                        <Check
+                          size={14}
+                          className="text-brand-500 group-hover:text-white"
+                        />
                       </div>
-                      <span className="text-[15px] text-ink-secondary font-body">{item}</span>
+                      <span className="text-[15px] text-ink-secondary font-body">
+                        {item}
+                      </span>
                     </div>
                   </StaggerItem>
                 ))}
               </StaggerContainer>
 
               {/* Pricing card */}
-              <motion.div
+              {/* <motion.div
                 className="bg-brand-50 rounded-2xl p-6 flex flex-wrap items-center justify-between gap-6"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
               >
                 <div>
-                  <div className="text-sm text-ink-muted font-body font-medium">Studio Rent</div>
+                  <div className="text-sm text-ink-muted font-body font-medium">
+                    Studio Rent
+                  </div>
                   <div className="font-display font-extrabold text-3xl text-brand-500">
-                    ৳2,000–3,000 <span className="text-sm font-medium text-ink-muted">BDT/session</span>
+                    ৳2,000–3,000{' '}
+                    <span className="text-sm font-medium text-ink-muted">
+                      BDT/session
+                    </span>
                   </div>
                 </div>
                 <Button href="/contact">Book Studio</Button>
-              </motion.div>
+              </motion.div> */}
             </RevealOnScroll>
           </div>
         </Container>
@@ -90,7 +149,12 @@ export default function StudioPage() {
       {/* Map */}
       <section className="py-20 bg-surface-secondary">
         <Container>
-          <SectionHeader title="Find Us" subtitle="We're located in Mirpur DOHS — easy access from anywhere in Dhaka." center />
+          <SectionHeader
+            title="Find Us"
+            subtitle="We're located in Mirpur DOHS — easy access from anywhere in Dhaka."
+            center
+          />
+
           <RevealOnScroll>
             <div className="rounded-3xl overflow-hidden shadow-medium">
               <iframe
