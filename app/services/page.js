@@ -8,14 +8,14 @@ import { CTABanner } from '@/app/page';
 import { ArrowRight, Check } from 'lucide-react';
 
 const SERVICE_IMAGES = {
-  'product-photography': '/services/services-a.png',
-  videography: '/services/services-b.png',
-  'podcast-recording': '/services/services-c.png',
+  'product-photography': '/services/Product-Fashion-Photography.png',
+  'videography': '/services/Videography-Youtube-Production.png',
+  'podcast-recording': '/services/podcast-recording.png',
 
   // Same 3 images reused for remaining services
-  'photo-editing': '/services/services-d.png',
-  'video-editing': '/services/services-e.png',
-  'branding-marketing': '/services/services-f.png',
+  'photo-editing': '/services/photo-editing.png',
+  'video-editing': '/services/video-editing.png',
+  'branding-marketing': '/services/branding-marketing.png',
 };
 
 function ServiceSection({ service, index }) {
