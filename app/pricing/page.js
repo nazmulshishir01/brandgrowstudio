@@ -183,7 +183,7 @@ export default function PricingPage() {
             ))}
           </StaggerContainer>
         </Container>
-      </section>
+      </section> 
 
       {/* FAQ */}
       <section className="py-24 bg-surface-secondary">
