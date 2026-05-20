@@ -9,7 +9,7 @@ import { ArrowRight, Check } from 'lucide-react';
 
 const SERVICE_IMAGES = {
   'product-photography': '/services/Product-Fashion-Photography.png',
-  'videography': '/services/Videography-Youtube-Production.png',
+  'videography': '/services/videography.png',
   'podcast-recording': '/services/podcast-recording.png',
 
   // Same 3 images reused for remaining services
