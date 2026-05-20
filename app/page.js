@@ -79,7 +79,7 @@ function Hero() {
               <Button href="/portfolio" variant="outline" size="lg">See Our Work</Button>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               className="mt-10 flex flex-wrap gap-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -90,7 +90,7 @@ function Hero() {
                   <span className="text-base">{icon}</span> {label}
                 </span>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Right — Creative Grid */}
@@ -106,7 +106,7 @@ function Hero() {
                 { col: 'col-span-5', row: 'row-span-2', bg: 'from-brand-300 to-brand-400', label: '🎬 Video', delay: 0.7 },
                 { col: 'col-span-5', row: 'row-span-4', bg: 'from-brand-500 to-emerald-600', label: '🎙 Podcast', delay: 0.8 },
                 { col: 'col-span-7', row: 'row-span-2', bg: 'from-brand-200 to-brand-400', label: '🖼 Editing', delay: 0.85 },
-                { col: 'col-span-12', row: 'row-span-1', bg: 'from-brand-400/80 to-brand-300/80', label: '📣 Full-Service Creative Agency', delay: 0.9 },
+                // { col: 'col-span-12', row: 'row-span-1', bg: 'from-brand-400/80 to-brand-300/80', label: '📣 Full-Service Creative Agency', delay: 0.9 },
               ].map((tile, i) => (
                 <motion.div
                   key={i}
@@ -128,8 +128,8 @@ function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
             >
-              <span className="text-brand-400 text-sm">✦</span>
-              <span className="font-body font-semibold text-sm text-ink-primary">Mirpur DOHS, Dhaka</span>
+              {/* <span className="text-brand-400 text-sm">✦</span>
+              <span className="font-body font-semibold text-sm text-ink-primary">Mirpur DOHS, Dhaka</span> */}
             </motion.div>
           </motion.div>
         </div>
@@ -191,24 +191,28 @@ function ServicesOverview() {
 function Showreel() {
   return (
     <section className="py-24 bg-brand-50 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(60,199,106,0.15) 0%, transparent 50%)' }} />
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 50% 50%, rgba(60,199,106,0.15) 0%, transparent 50%)',
+        }}
+      />
+
       <Container size="narrow">
         <SectionHeader title="See Us in Action" center />
+
         <RevealOnScroll>
           <div className="relative max-w-3xl mx-auto">
-            <div className="aspect-video bg-gradient-to-br from-brand-400 to-brand-600 rounded-3xl flex flex-col items-center justify-center gap-4 shadow-glow-lg overflow-hidden group cursor-pointer">
-              <motion.div
-                className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white"
-                whileHover={{ scale: 1.15 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <div className="w-0 h-0 border-l-[18px] border-l-white border-y-[12px] border-y-transparent ml-1.5" />
-              </motion.div>
-              <p className="text-white/70 text-sm font-body">Add your showreel YouTube link here</p>
-              {/* Animated ring */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-20 h-20 rounded-full border-2 border-white/30 animate-pulse-ring" />
-              </div>
+            <div className="aspect-video rounded-3xl overflow-hidden shadow-glow-lg bg-black">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/2b_Lnz3tHGw"
+                title="Showreel Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           </div>
         </RevealOnScroll>
